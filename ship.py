@@ -17,18 +17,6 @@ class Ship():
                 else:
                     print("That is not a valid input, please enter H or V")
                     print(" ")
-            
-            while True: 
-                row_input = input("Which row? (Between 1 and 8): ")
-                try:
-                    int_row = int(row_input)
-                    if int_row >= 1 and int_row <=8:
-                        break
-                    else:
-                        print("That is not a valid input, please enter between 1 and 8")
-                        print(" ")
-                except ValueError:
-                    print("This is not a valid response, please enter between 1 and 8")
                     
             while True: 
                 column_input = input("Which Column? (Between A and H): ")
@@ -40,6 +28,18 @@ class Ship():
                 else:
                     print("That is not a valid input, please enter letter between A and H")
                     print(" ")
+                    
+            while True: 
+                row_input = input("Which row? (Between 1 and 8): ")
+                try:
+                    int_row = int(row_input)
+                    if int_row >= 1 and int_row <=8:
+                        break
+                    else:
+                        print("That is not a valid input, please enter between 1 and 8")
+                        print(" ")
+                except ValueError:
+                    print("This is not a valid response, please enter between 1 and 8")
             
             dir = upper_direction
             row = int_row - 1 #remove one here to account for 0 in list 

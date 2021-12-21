@@ -29,4 +29,4 @@ class Player():
             except ValueError:
                 print("This is not a valid response, please enter between 1 and 8")
         
-        return [column_choice, int_row]
+        return [int_row, column_choice]
