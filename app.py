@@ -20,6 +20,7 @@ def play_game():
     print(" ")
     
     while True:
+        print("")
         print("PLAYER ONE, Select attack coordinates.")
         p_one_attack = Player.select_attack_coordinates()
         #player one attacks player two
@@ -27,11 +28,14 @@ def play_game():
         
         #check for destroyed boat
         if not any("O" in b for b in player_two.board):
-            print("Player Two Says: You sunk my battleship")
             print("")
-            print("Press any key to exit")
+            print("")
+            print("Player Two Says: You sunk my battleship!!!")
+            print("Press enter to exit")
             input()
+            break
         
+        print("")
         print("PLAYER TWO, Select attack coordinates.")
         p_two_attack = Player.select_attack_coordinates()
         #player two attacks player one
@@ -39,10 +43,12 @@ def play_game():
         
         #check for destroyed boat
         if not any("O" in b for b in player_one.board):
-            print("Player Two Says: You sunk my battleship")
             print("")
-            print("Press any key to exit")
+            print("")
+            print("Player One Says: You sunk my battleship!!!")
+            print("Press enter to exit")
             input()
+            break
             
 if __name__ == '__main__':
     play_game()

@@ -28,7 +28,7 @@ class Ship():
                         print("That is not a valid input, please enter between 1 and 8")
                         print(" ")
                 except ValueError:
-                    print("This is not a valid response")
+                    print("This is not a valid response, please enter between 1 and 8")
                     
             while True: 
                 column_input = input("Which Column? (Between A and H): ")
