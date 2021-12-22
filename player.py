@@ -4,6 +4,18 @@ class Player():
     def __init__(self):
         self.board = GameBoard().gameboard
         
+    def convert_row_selection(input):
+        try:
+            int_row = int(input)
+            if int_row >= 1 and int_row <=8:
+                int_row = int_row - 1 #minus 1 to account for array zeros
+                return int_row
+            else:
+                print("That is not a valid input, please enter between 1 and 8")
+                print(" ")
+        except ValueError:
+            print("This is not a valid response, please enter between 1 and 8")
+        
     def select_attack_coordinates():
         letterArray = ["A", "B", "C", "D", "E", "F", "G", "H"]
         
@@ -18,15 +30,8 @@ class Player():
                 print(" ")
         while True:
             p_row = input("Choose a coordinate between 1 and 8: ")
-            try:
-                int_row = int(p_row)
-                if int_row >= 1 and int_row <=8:
-                    int_row = int_row - 1 #minus 1 to account for array zeros
-                    break
-                else:
-                    print("That is not a valid input, please enter between 1 and 8")
-                    print(" ")
-            except ValueError:
-                print("This is not a valid response, please enter between 1 and 8")
+            int_return = Player.convert_row_selection(p_row)
+            if type(int_return) == int:
+                break
         
-        return [int_row, column_choice]
+        return [int_return, column_choice]

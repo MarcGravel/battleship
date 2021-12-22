@@ -4,7 +4,6 @@ from ship import Ship
 def play_game():
     player_one = Player()
     player_two = Player()
-    letterArray = ["A", "B", "C", "D", "E", "F", "G", "H"]
     
     print("-------------------")
     print("Welcome to BattleShip, 2-player mode.")
