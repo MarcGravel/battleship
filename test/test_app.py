@@ -1,7 +1,7 @@
 import unittest
 from app import check_for_win, check_shot_value
 
-class test_app(unittest.TestCase):
+class TestApp(unittest.TestCase):
     
     #Tests for checking shot values
     def test_shot_hit_or_miss(self):
@@ -11,9 +11,13 @@ class test_app(unittest.TestCase):
         self.assertEqual(check_shot_value(""), print("Miss"))
         
     #Tests for checking if player win
-    def test_check_for_win (self):
+    def test_check_for_win_true (self):
         self.assertEqual(check_for_win([["-","-","-","-"],["-","-","X"], ["X","-","X"]], "Player Two"), True)
         self.assertEqual(check_for_win([["-","-","-","-"],["-","-","-","-"], ["-","-","-","-"]], "Player Two"), True)
+        self.assertEqual(check_for_win([["-","-","-","-"],["O","X","X"], ["X","-","X"]], "Player Two"), False)
+        self.assertEqual(check_for_win([["-","O","O","O"],["-","-","x"], ["x","x","x"]], "Player Two"), False)
+        
+    def test_check_for_win_true_false (self):
         self.assertEqual(check_for_win([["-","-","-","-"],["O","X","X"], ["X","-","X"]], "Player Two"), False)
         self.assertEqual(check_for_win([["-","O","O","O"],["-","-","x"], ["x","x","x"]], "Player Two"), False)
         

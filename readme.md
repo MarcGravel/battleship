@@ -23,3 +23,17 @@ Run:
 python app.py
 ```
 
+### Run tests
+
+Run all tests:
+
+```bash
+python -m unittest
+```
+
+Run single file:
+
+```bash
+python -m test.<Filename>
+```
+

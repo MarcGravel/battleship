@@ -1,22 +1,24 @@
 import unittest
-from unittest.mock import patch
 from player import Player
 
-class test_player(unittest.TestCase):
+class TestPlayer(unittest.TestCase):
     
     #Tests for selecting attack coordinates
     
-    def test_convert_row_selection(self):
+    def test_convert_row_selection_success(self):
         self.assertEqual(Player.convert_row_selection("8"), 7)
         self.assertEqual(Player.convert_row_selection("2"), 1)
-        self.assertEqual(Player.convert_row_selection("9"), None)
+        
+    def test_convert_row_selection_fail(self):
         self.assertEqual(Player.convert_row_selection("12"), None)
         self.assertEqual(Player.convert_row_selection("b"), None)
         self.assertEqual(Player.convert_row_selection(" "), None)
         
-    def test_convert_letter_choice_to_number(self):
+    def test_convert_letter_choice_to_number_success(self):
         self.assertEqual(Player.convert_letter_choice_to_number("a"), 0)
         self.assertEqual(Player.convert_letter_choice_to_number("C"), 2)
+    
+    def test_convert_letter_choice_to_number_fail(self):
         self.assertEqual(Player.convert_letter_choice_to_number("3"), None)
         self.assertEqual(Player.convert_letter_choice_to_number("m"), None)
         
