@@ -51,6 +51,8 @@ def play_game():
         check_shot_value(shot_value)
         isWin = check_for_win(player_two.board, "Player Two")
         if isWin:
+            #hold program on until user follows prompt to press enter to exit
+            input()
             break
         
         print("PLAYER TWO, Select attack coordinates.")
