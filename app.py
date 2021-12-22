@@ -24,7 +24,6 @@ def play_game():
         #player one attacks player two
         shot_value = player_two.board[p_one_attack[0]][p_one_attack[1]]
         player_two.board[p_one_attack[0]][p_one_attack[1]] = "X"
-        print(player_two.board)
         if shot_value == "O":
             print("")
             print("Hit")
@@ -52,7 +51,6 @@ def play_game():
         #player two attacks player one
         shot_value = player_one.board[p_two_attack[0]][p_two_attack[1]]
         player_one.board[p_two_attack[0]][p_two_attack[1]] = "X"
-        print(player_one.board)
         if shot_value == "O":
             print("")
             print("Hit")
