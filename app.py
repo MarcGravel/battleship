@@ -1,6 +1,29 @@
 from player import Player
 from ship import Ship
 
+def check_shot_value(value):
+    if value == "O":
+        print("")
+        print("Hit")
+        print("")
+    elif value == "X":
+        print("")
+        print("You already Hit here")
+        print("")
+    else:
+        print("")
+        print("Miss")
+        print("")
+        
+def check_for_win(board, player):
+    #check for destroyed boat
+    if not any("O" in b for b in board):
+        print(str(player)+" Says: You sunk my battleship!!!")
+        print("Press enter to exit")
+        return True
+    else:
+        return False
+
 def play_game():
     player_one = Player()
     player_two = Player()
@@ -24,26 +47,10 @@ def play_game():
         #player one attacks player two
         shot_value = player_two.board[p_one_attack[0]][p_one_attack[1]]
         player_two.board[p_one_attack[0]][p_one_attack[1]] = "X"
-        if shot_value == "O":
-            print("")
-            print("Hit")
-            print("")
-        elif shot_value == "X":
-            print("")
-            print("You already Hit here")
-            print("")
-        else:
-            print("")
-            print("Miss")
-            print("")
         
-        #check for destroyed boat
-        if not any("O" in b for b in player_two.board):
-            print("")
-            print("")
-            print("Player Two Says: You sunk my battleship!!!")
-            print("Press enter to exit")
-            input()
+        check_shot_value(shot_value)
+        isWin = check_for_win(player_two.board, "Player Two")
+        if isWin:
             break
         
         print("PLAYER TWO, Select attack coordinates.")
@@ -51,23 +58,11 @@ def play_game():
         #player two attacks player one
         shot_value = player_one.board[p_two_attack[0]][p_two_attack[1]]
         player_one.board[p_two_attack[0]][p_two_attack[1]] = "X"
-        if shot_value == "O":
-            print("")
-            print("Hit")
-            print("")
-        elif shot_value == "X":
-            print("")
-            print("You already Hit here")
-            print("")
-        else:
-            print("")
-            print("Miss")
-            print("")
         
-        #check for destroyed boat
-        if not any("O" in b for b in player_one.board):
-            print("Player One Says: You sunk my battleship!!!")
-            print("Press enter to exit")
+        check_shot_value(shot_value)
+        isWin = check_for_win(player_one.board, "Player One")
+        if isWin:
+            #hold program on until user follows prompt to press enter to exit
             input()
             break
             
